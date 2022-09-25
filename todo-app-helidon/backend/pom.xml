@@ -26,7 +26,6 @@
         <artifactId>helidon-mp</artifactId>
         <version>2.0.0</version>
         <relativePath/>
-        <!--        <relativePath>../../../applications/mp/pom.xml</relativePath>-->
     </parent>
     <groupId>io.helidon.examples.todos</groupId>
     <artifactId>helidon-examples-todo-backend</artifactId>
@@ -39,9 +38,6 @@
     <properties>
         <mainClass>io.helidon.demo.todos.backend.Main</mainClass>
         <version.lib.cassandra>3.4.0</version.lib.cassandra>
-        <repository>ammbra</repository>
-        <jkube.version>1.9.0</jkube.version>
-        <jkube.generator.name>{repository}/${project.artifactId}:${project.version}</jkube.generator.name>
         <dekorate-annotations.version>3.0.0</dekorate-annotations.version>
     </properties>
 
@@ -136,17 +132,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.eclipse.jkube</groupId>-->
-<!--                <artifactId>kubernetes-maven-plugin</artifactId>-->
-<!--                <version>${jkube.version}</version>-->
-<!--                <configuration>-->
-<!--                    <mergeWithDekorate>true</mergeWithDekorate>-->
-<!--                    <resources>-->
-<!--                        <imagePullPolicy>Always</imagePullPolicy>-->
-<!--                    </resources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 </project>
