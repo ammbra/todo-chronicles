@@ -58,10 +58,14 @@ import static java.time.Duration.ofSeconds;
 /**
  * Main class to start the service.
  */
-@DockerBuild(group = "ammbra")
+@DockerBuild(group = "ammbra", image = "docker.io/ammbra/helidon-examples-todo-frontend:2.5.3" )
 @KubernetesApplication( ports = @Port(name = "http", containerPort = 8080),
+        mounts = @Mount(name = "config-volume", path = "/conf"),
+        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-backend", volumeName = "config-volume"),
         serviceType = ServiceType.LoadBalancer, ingress = @Ingress(expose = true))
-@KnativeApplication(name = "ktodo-app-frontend", ports = @Port(name = "http", containerPort = 8080))
+@KnativeApplication(name = "ktodo-app-frontend", ports = @Port(name = "http", containerPort = 8080),
+        mounts = @Mount(name = "config-volume", path = "/conf"),
+        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-backend", volumeName = "config-volume"))
 @HelmChart(name = "htodo-app-frontend", values = @ValueReference(property = "name", paths = "metadata.name", value = "htodo-app-frontend"))
 @TektonApplication(sourceWorkspaceClaim = @PersistentVolumeClaim(name = "claim-mine", matchLabels = @Label(key = "foo", value = "bar")))
 public final class Main {

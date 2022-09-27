@@ -39,6 +39,9 @@
         <mainClass>io.helidon.demo.todos.backend.Main</mainClass>
         <version.lib.cassandra>3.4.0</version.lib.cassandra>
         <dekorate-annotations.version>3.0.0</dekorate-annotations.version>
+        <repository>ammbra</repository>
+        <jkube.version>1.9.0</jkube.version>
+        <jkube.generator.name>${repository}/${project.artifactId}:${project.version}</jkube.generator.name>
     </properties>
 
     <dependencyManagement>
@@ -115,6 +118,17 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <version>${jkube.version}</version>
+                <configuration>
+                    <mergeWithDekorate>true</mergeWithDekorate>
+                    <resources>
+                        <imagePullPolicy>Always</imagePullPolicy>
+                    </resources>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -134,4 +148,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

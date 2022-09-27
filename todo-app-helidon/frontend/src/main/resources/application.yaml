@@ -29,25 +29,25 @@ security:
   config:
     require-encryption: false
     aes.insecure-passphrase: "jungle"
-  provider-policy:
-    type: "COMPOSITE"
-    authentication:
-      - name: "google-login"
-    outbound:
-      - name: "google-login"
-      - name: "http-signatures"
-  providers:
-    - google-login:
-        client-id: "1048216952820-6a6ke9vrbjlhngbc0al0dkj9qs9tqbk2.apps.googleusercontent.com"
-    - abac:
-    - http-signatures:
-        outbound:
-        - name: "backend"
-          hosts: ["localhost", "helidon-examples-todo-backend"]
-          signature:
-            key-id: "frontend"
-            hmac.secret: "${CLEAR=frontend2backend}"
-  web-server:
-    paths:
-      - path: "/api/[{*}]"
-        authenticate: true
+#  provider-policy:
+#    type: "COMPOSITE"
+#    authentication:
+#      - name: "google-login"
+#    outbound:
+#      - name: "google-login"
+#      - name: "http-signatures"
+#  providers:
+#    - google-login:
+#        client-id: "1048216952820-6a6ke9vrbjlhngbc0al0dkj9qs9tqbk2.apps.googleusercontent.com"
+#    - abac:
+#    - http-signatures:
+#        outbound:
+#        - name: "backend"
+#          hosts: ["localhost", "helidon-examples-todo-backend"]
+#          signature:
+#            key-id: "frontend"
+#            hmac.secret: "${CLEAR=frontend2backend}"
+#  web-server:
+#    paths:
+#      - path: "/api/[{*}]"
+#        authenticate: true

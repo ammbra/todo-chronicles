@@ -30,20 +30,25 @@ data:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helidon-examples-todo-backend
+  labels:
+    app.kubernetes.io/name: helidon-examples-todo-backend
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: helidon-examples-todo-backend
   template:
     metadata:
       labels:
-        app: helidon-examples-todo-backend
+        app.kubernetes.io/name: helidon-examples-todo-backend
     spec:
       containers:
       - name: helidon-examples-todo-backend
-        image: helidon-examples-todo-backend
+        image: docker.io/ammbra/helidon-examples-todo-backend:2.5.3
         imagePullPolicy: Never
         ports:
         - containerPort: 8854

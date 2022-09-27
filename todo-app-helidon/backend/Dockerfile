@@ -41,4 +41,4 @@ COPY --from=build /helidon/target/libs ./libs
 
 CMD ["java", "-jar", "helidon-examples-todo-backend.jar"]
 
-EXPOSE 8080
+EXPOSE 8854

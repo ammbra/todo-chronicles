@@ -36,11 +36,10 @@ import static io.helidon.config.ConfigSources.file;
 /**
  * Main class to start the service.
  */
-@DockerBuild(group = "ammbra")
-@KubernetesApplication( ports = @Port(name = "http", containerPort = 8854),
+@DockerBuild(group = "ammbra", image = "docker.io/ammbra/helidon-examples-todo-backend:2.5.3")
+@KubernetesApplication( ports = @Port(name = "http", containerPort = 8854, hostPort = 8854),
         mounts = @Mount(name = "config-volume", path = "/conf"),
-        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-frontend", volumeName = "config-volume"),
-        serviceType = ServiceType.LoadBalancer, ingress = @Ingress(expose = true))
+        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-backend", volumeName = "config-volume"))
 @KnativeApplication(name = "ktodo-app-backend", ports = @Port(name = "http", containerPort = 8854),
         mounts = @Mount(name = "config-volume", path = "/conf"),
         configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-frontend", volumeName = "config-volume"))
