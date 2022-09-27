@@ -42,7 +42,7 @@ import static io.helidon.config.ConfigSources.file;
         configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-backend", volumeName = "config-volume"))
 @KnativeApplication(name = "ktodo-app-backend", ports = @Port(name = "http", containerPort = 8854),
         mounts = @Mount(name = "config-volume", path = "/conf"),
-        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-frontend", volumeName = "config-volume"))
+        configMapVolumes = @ConfigMapVolume(configMapName = "helidon-examples-todo-backend", volumeName = "config-volume"))
 @HelmChart(name = "htodo-app-backend", values = @ValueReference(property = "name", paths = "metadata.name", value = "htodo-app-backend"))
 @TektonApplication(sourceWorkspaceClaim = @PersistentVolumeClaim(name = "claim-mine", matchLabels = @Label(key = "foo", value = "bar")))
 public final class Main {
