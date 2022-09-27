@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@DockerBuild(group = "ammbra", autoBuildEnabled = true, autoPushEnabled = true)
+@DockerBuild(group = "ammbra", autoBuildEnabled = false, autoPushEnabled = false, image = "ammbra/spring-todo-app:1.0-SNAPSHOT")
 @KubernetesApplication(replicas = 2, serviceType = ServiceType.LoadBalancer)
 public class TodoApplication {
 
