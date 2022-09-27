@@ -62,11 +62,11 @@
             <artifactId>helm-annotations</artifactId>
             <version>${kubernetes-spring-starter.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.dekorate</groupId>
-            <artifactId>tekton-annotations</artifactId>
-            <version>${kubernetes-spring-starter.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.dekorate</groupId>-->
+<!--            <artifactId>tekton-annotations</artifactId>-->
+<!--            <version>${kubernetes-spring-starter.version}</version>-->
+<!--        </dependency>-->
         <!-- Databases - Uses H2 by default -->
         <dependency>
             <groupId>com.h2database</groupId>
