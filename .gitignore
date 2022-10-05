@@ -24,3 +24,6 @@ hs_err_pid*
 .idea/encodings.xml
 *.iml
 .idea/libraries/
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/.gitignore

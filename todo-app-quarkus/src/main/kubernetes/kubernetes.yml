@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  database-name: todo
+kind: ConfigMap
+metadata:
+  name: database
+  namespace: demo
