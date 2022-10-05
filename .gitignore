@@ -27,3 +27,7 @@ hs_err_pid*
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/.gitignore
+todo-app-helidon/backend/target/
+todo-app-helidon/frontend/target/
+todo-app-quarkus/target/
+todo-app-springboot/target/
