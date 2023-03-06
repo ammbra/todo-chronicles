@@ -1,3 +1,5 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 package org.acme.example.model;
 import javax.persistence.Id;
 import javax.persistence.Entity;
